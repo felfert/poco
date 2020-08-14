@@ -10,6 +10,7 @@ add_library(mod_poco SHARED ${SRCS})
 set_target_properties(mod_poco
 	PROPERTIES
 	PREFIX ""
+	SUFFIX ".so"
 	VERSION ${SHARED_LIBRARY_VERSION} SOVERSION ${SHARED_LIBRARY_VERSION}
 	DEFINE_SYMBOL ApacheHandlers_EXPORTS)
 target_include_directories(mod_poco
