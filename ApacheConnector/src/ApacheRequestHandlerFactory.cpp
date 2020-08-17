@@ -69,6 +69,7 @@ void ApacheRequestHandlerFactory::handleURIs(const std::string& uris)
 	// Handle quoted string
 	while ((dllName.find('"') == 0) && (dllName.rfind('"') != dllName.length() - 1) && (it != itEnd)) {
 		it++;
+		dllName.append(" ");
 		dllName.append(*it);
 	}
 	if ((dllName.find('"') == 0) && (dllName.rfind('"') == dllName.length() - 1)) {
