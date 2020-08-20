@@ -259,7 +259,12 @@ extern "C" const char* ApacheConnector_config(cmd_parms *cmd, void *in_dconf, co
 {
 	try
 	{
-		ApacheApplication::instance().loadConfiguration(in_str);
+        std::string cfg(in_str);
+        // Strip optional quotes
+        if ((cfg.find('"') == 0) && (cfg.rfind('"') == cfg.length() - 1)) {
+                cfg = cfg.substr(1, cfg.length() - 2);
+        }
+		ApacheApplication::instance().loadConfiguration(cfg);
 	}
 	catch (Poco::Exception& exc)
 	{
